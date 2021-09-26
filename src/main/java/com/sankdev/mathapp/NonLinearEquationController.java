@@ -8,8 +8,10 @@ public class NonLinearEquationController {
 
   public NonLinearEquationController() {
     NonLinearEquationModel viewModel = new NonLinearEquationModel();
-    NonLinearEquationInteractor nonLinearEquationInteractor = new NonLinearEquationInteractor(viewModel);
-    view = new NonLinearEquationsView(viewModel, nonLinearEquationInteractor::halfDivisionMethod);
+    NonLinearEquationInteractor nonLinearEquationInteractor = new NonLinearEquationInteractor(
+        viewModel);
+    view = new NonLinearEquationsView(viewModel, nonLinearEquationInteractor::halfDivisionMethod,
+        nonLinearEquationInteractor::chordMethod, nonLinearEquationInteractor::tangentMethod);
   }
 
   public Region getView() {

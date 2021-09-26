@@ -1,7 +1,5 @@
 package com.sankdev.mathapp;
 
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -22,7 +20,8 @@ public class MainWindowView extends VBox {
       stage.setTitle("Нелинейное уравнение");
       stage.initModality(Modality.APPLICATION_MODAL);
 
-      Scene scene = new Scene(new NonLinearEquationController().getView(), 650, 400);
+      Scene scene = new Scene(new NonLinearEquationController().getView(),
+          GUIUtils.BASE_WINDOW_WIDTH, GUIUtils.BASE_WINDOW_HEIGHT);
       stage.setScene(scene);
       stage.show();
     });

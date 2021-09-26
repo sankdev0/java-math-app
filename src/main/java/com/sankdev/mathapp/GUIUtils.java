@@ -16,14 +16,16 @@ import javafx.scene.text.FontWeight;
 
 public class GUIUtils {
 
-  private static final Font BASE_TXT_FONT = Font.font(Font.getDefault().getName(),
+  public static final Font BASE_TXT_FONT = Font.font(Font.getDefault().getName(),
       Font.getDefault().getSize() * 1.3);
-  private static final Font BASE_BTN_FONT = Font.font(Font.getDefault().getName(),
+  public static final Font BASE_BTN_FONT = Font.font(Font.getDefault().getName(),
       Font.getDefault().getSize() * 1.2);
-  private static final Font BASE_BOLD_FONT = Font.font(Font.getDefault().getName(), FontWeight.BOLD,
+  public static final Font BASE_BOLD_FONT = Font.font(Font.getDefault().getName(), FontWeight.BOLD,
       Font.getDefault().getSize() * 1.3);
   public static Insets DEFAULT_INSETS = new Insets(5);
   public static final int DEFAULT_SPACING = 10;
+  public static final double BASE_WINDOW_WIDTH = 650;
+  public static final double BASE_WINDOW_HEIGHT = 400;
 
   public static void styleLabeled(Labeled labeled, Font theFont) {
     labeled.setFont(theFont);

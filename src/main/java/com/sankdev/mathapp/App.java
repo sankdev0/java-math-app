@@ -6,11 +6,14 @@ import javafx.stage.Stage;
 
 public class App extends Application {
 
+  private static final double width = 350;
+  public static final double height = 300;
+
   @Override
   public void start(Stage stage) throws Exception {
 
     // Создаем окно и запускаем его.
-    Scene scene = new Scene(new MainWindowController().getView(), 350, 300);
+    Scene scene = new Scene(new MainWindowController().getView(), width, height);
     stage.setTitle("Пакет прикладных программ");
     stage.setScene(scene);
     stage.show();

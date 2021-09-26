@@ -9,8 +9,8 @@ class NonLinearEquationInteractor {
     // Здесь не нужны binds.
   }
 
-  private double a = -5; // начало интервала a
-  private double b = 8; // конец интервала b
+  private double a = -10; // начало интервала a
+  private double b = 10; // конец интервала b
   private final double eps = 0.001; // точность
 
   // Расчет значения функции для аргумента x.
@@ -29,8 +29,8 @@ class NonLinearEquationInteractor {
 
   // Реализация метода половинного деления.
   public void halfDivisionMethod() {
-    double a = this.a;
-    double b = this.b;
+    double a = -20;
+    double b = 0;
     while (Math.abs(b - a) > eps) {
       if (functionValue(a) * functionValue(segmentMidpoint(a, b)) < 0) {
         b = segmentMidpoint(a, b);
@@ -42,24 +42,23 @@ class NonLinearEquationInteractor {
   }
 
   // Реализация метода хорд.
-  public double сhordMethod() {
+  public void chordMethod() {
     double a = this.a;
     double b = this.b;
     double xNext = 0;
     double temp;
     do {
       temp = xNext;
-      xNext = b - functionValue(b) * (a - b) /
-          (functionValue(a) - functionValue(b));
+      xNext = b - functionValue(b) * (a - b) / (functionValue(a) - functionValue(b));
       a = b;
       b = temp;
     }
     while (Math.abs(xNext - b) > eps);
-    return xNext;
+    viewModel.setNonLinearEquationResult(String.valueOf(xNext));
   }
 
   // Реализация метода касательных.
-  public double tangentMethod() {
+  public void tangentMethod() {
     double a = this.a;
     double b = this.b;
     double x = a;
@@ -68,7 +67,7 @@ class NonLinearEquationInteractor {
       x = a - functionValue(x) / f1(x);
     }
     while (Math.abs(a - x) > eps);
-    return x;
+    viewModel.setNonLinearEquationResult(String.valueOf(x));
   }
 
 }
