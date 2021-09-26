@@ -24,19 +24,19 @@ For equations and pictures see below the text in Russian.
 Включает в себя следующие приложения:
 1. Решение не линейных уравнений. Разработать ПС и решить уравнение методами половинного деления (бисекций),  хорд, касательных (метод Ньютона) с точностью до 0,001. Интервалы выбрать самостоятельно.
 
-![img_4.png](img/img_4.png)
+![img_4.png](src/main/resources/com/sankdev/mathapp/img/img_4.png)
 
 2. Система линейных  алгебраических уравнений (СЛАУ). Разработать ПС и решить СЛАУ методами Гаусса, итераций (метод последовательных приближений), Зейделя. Для методов итераций и Зейделя решить с точностью 0,001.
 
-![img_5.png](img/img_5.png)
+![img_5.png](src/main/resources/com/sankdev/mathapp/img/img_5.png)
 
 3. Решение системы нелинейных уравнений. Разработать ПС и решить СНУ методами простой итерации и Ньютона с точностью 0,001.
 
-![img_6.png](img/img_6.png)
+![img_6.png](src/main/resources/com/sankdev/mathapp/img/img_6.png)
 
 4. Интерполирование функций (приближение функций). Интерполируемая функция задана таблицей
 
-![img_7.png](img/img_7.png)
+![img_7.png](src/main/resources/com/sankdev/mathapp/img/img_7.png)
 
 а) Построить интерполяционный многочлен Лагранжа, найти значение функции в точке 3,5.
 б) Построить интерполяционный многочлен Ньютона по первой таблице.
@@ -44,11 +44,11 @@ For equations and pictures see below the text in Russian.
 5. Численное интегрирование. Численное диференцирование.
 а) Вычислить интеграл методом трапеций
 
-![img_8.png](img/img_8.png)
+![img_8.png](src/main/resources/com/sankdev/mathapp/img/img_8.png)
 
 б) Вычислить интеграл по формуле Симпсона при n=8
 
-![img_9.png](img/img_9.png)
+![img_9.png](src/main/resources/com/sankdev/mathapp/img/img_9.png)
 
 в) Функция y=f(x) задана табл.
 Методом численного дифференцирования найти две производные этой функции в точке х=2.
@@ -56,5 +56,5 @@ For equations and pictures see below the text in Russian.
 6. Численное решение обыкновенных дифференциальных уравнений (ОДУ).
 Разработать ПС и решить дифференциальное уравнение методами: Рунге-Кутта на отрезке  [0,2]
 
-![img_10.png](img/img_10.png)
+![img_10.png](src/main/resources/com/sankdev/mathapp/img/img_10.png)
 
