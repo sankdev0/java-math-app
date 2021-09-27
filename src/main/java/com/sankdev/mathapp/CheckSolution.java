@@ -2,7 +2,7 @@ package com.sankdev.mathapp;
 
 public class CheckSolution {
 
-  public static double x = 0.5999999968081147;
+  public static double x = 0.577911376953125;
 
   // Расчет значения функции для аргумента x.
   public static double functionValue(double x) {

@@ -6,11 +6,11 @@ class NonLinearEquationInteractor {
 
   public NonLinearEquationInteractor(NonLinearEquationModel viewModel) {
     this.viewModel = viewModel;
-    // Здесь не нужны binds.
+    // Здесь не нужны связи (binds) между элементами интерфейса, хотя обычно они здесь.
   }
 
-  private double a = -10; // начало интервала a
-  private double b = 10; // конец интервала b
+  private double a = -1; // начало интервала a
+  private double b = 8; // конец интервала b
   private final double eps = 0.001; // точность
 
   // Расчет значения функции для аргумента x.
@@ -23,14 +23,15 @@ class NonLinearEquationInteractor {
     return (a + b) / 2;
   }
 
+  // Первая производная от функции
   public double f1(double x) {
-    return Math.pow(2, x) * Math.log(2) - 5;
+    return 4 * Math.pow(x, 3) + 5;
   }
 
   // Реализация метода половинного деления.
   public void halfDivisionMethod() {
-    double a = -20;
-    double b = 0;
+    double a = this.a;
+    double b = this.b;
     while (Math.abs(b - a) > eps) {
       if (functionValue(a) * functionValue(segmentMidpoint(a, b)) < 0) {
         b = segmentMidpoint(a, b);
