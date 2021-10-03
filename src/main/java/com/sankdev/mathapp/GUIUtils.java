@@ -6,6 +6,7 @@ import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Labeled;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextInputControl;
 import javafx.scene.layout.HBox;
@@ -24,7 +25,7 @@ public class GUIUtils {
       Font.getDefault().getSize() * 1.3);
   public static Insets DEFAULT_INSETS = new Insets(5);
   public static final int DEFAULT_SPACING = 10;
-  public static final double BASE_WINDOW_WIDTH = 650;
+  public static final double BASE_WINDOW_WIDTH = 700;
   public static final double BASE_WINDOW_HEIGHT = 400;
 
   public static void styleLabeled(Labeled labeled, Font theFont) {
@@ -57,7 +58,7 @@ public class GUIUtils {
       if (tempNode instanceof Label) {
         styleLabeled((Label) tempNode, BASE_TXT_FONT);
       }
-      if (tempNode instanceof TextField) {
+      if (tempNode instanceof TextField || tempNode instanceof TextArea) {
         styleTextInputControl((TextInputControl)tempNode, BASE_TXT_FONT);
       }
     }

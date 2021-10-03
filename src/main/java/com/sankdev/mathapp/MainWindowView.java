@@ -1,5 +1,8 @@
 package com.sankdev.mathapp;
 
+import com.sankdev.mathapp.linearsystem.LinearSystemController;
+import com.sankdev.mathapp.nonlinearequation.NonLinearEquationController;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -13,6 +16,7 @@ public class MainWindowView extends VBox {
     // Создаем дочерние элементы окна.
     Label infoLbl = new Label("Выберите приложение");
     Button nonLinearEquationsBtn = new Button("Решение нелинейных уравнений");
+    Button linearSystemsBtn = new Button("Решение СЛАУ");
 
     // Добавляем обработчики событий.
     nonLinearEquationsBtn.setOnAction(event -> {
@@ -25,13 +29,27 @@ public class MainWindowView extends VBox {
       stage.setScene(scene);
       stage.show();
     });
+    linearSystemsBtn.setOnAction(event -> {
+      Stage stage = new Stage();
+      stage.setTitle("СЛАУ");
+      stage.initModality(Modality.APPLICATION_MODAL);
+
+      Scene scene = new Scene(new LinearSystemController().getView(), GUIUtils.BASE_WINDOW_WIDTH,
+          GUIUtils.BASE_WINDOW_HEIGHT);
+      stage.setScene(scene);
+      stage.show();
+
+    });
 
     // Добавляем в контейнер дочерние элементы окна.
-    getChildren().setAll(infoLbl, nonLinearEquationsBtn);
+    getChildren().setAll(infoLbl, nonLinearEquationsBtn, linearSystemsBtn);
 
     // Стилизуем элементы главного окна.
     GUIUtils.styleBoxPane(this);
-
-
+    for (Node tempNode : this.getChildren()) {
+      if (tempNode instanceof Button) {
+        ((Button)tempNode).setPrefWidth(300);
+      }
+    }
   }
 }

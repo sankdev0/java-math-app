@@ -1,4 +1,4 @@
-package com.sankdev.mathapp;
+package com.sankdev.mathapp.nonlinearequation;
 
 import javafx.scene.layout.Region;
 

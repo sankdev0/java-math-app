@@ -1,4 +1,4 @@
-package com.sankdev.mathapp;
+package com.sankdev.mathapp.nonlinearequation;
 
 class NonLinearEquationInteractor {
 
@@ -11,7 +11,7 @@ class NonLinearEquationInteractor {
 
   private double a = -1; // начало интервала a
   private double b = 8; // конец интервала b
-  private final double eps = 0.001; // точность
+  private final double EPSILON = 0.001; // точность
 
   // Расчет значения функции для аргумента x.
   public double functionValue(double x) {
@@ -24,7 +24,7 @@ class NonLinearEquationInteractor {
   }
 
   // Первая производная от функции
-  public double f1(double x) {
+  public double firstDerivativeFunction(double x) {
     return 4 * Math.pow(x, 3) + 5;
   }
 
@@ -32,7 +32,7 @@ class NonLinearEquationInteractor {
   public void halfDivisionMethod() {
     double a = this.a;
     double b = this.b;
-    while (Math.abs(b - a) > eps) {
+    while (Math.abs(b - a) > EPSILON) {
       if (functionValue(a) * functionValue(segmentMidpoint(a, b)) < 0) {
         b = segmentMidpoint(a, b);
       } else {
@@ -54,20 +54,19 @@ class NonLinearEquationInteractor {
       a = b;
       b = temp;
     }
-    while (Math.abs(xNext - b) > eps);
+    while (Math.abs(xNext - b) > EPSILON);
     viewModel.setNonLinearEquationResult(String.valueOf(xNext));
   }
 
   // Реализация метода касательных.
   public void tangentMethod() {
     double a = this.a;
-    double b = this.b;
     double x = a;
     do {
       a = x;
-      x = a - functionValue(x) / f1(x);
+      x = a - functionValue(x) / firstDerivativeFunction(x);
     }
-    while (Math.abs(a - x) > eps);
+    while (Math.abs(a - x) > EPSILON);
     viewModel.setNonLinearEquationResult(String.valueOf(x));
   }
 

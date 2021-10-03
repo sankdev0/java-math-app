@@ -1,4 +1,4 @@
-package com.sankdev.mathapp;
+package com.sankdev.mathapp.nonlinearequation;
 
 import java.util.Objects;
 import javafx.beans.property.ObjectProperty;

@@ -6,4 +6,8 @@ module com.sankdev.math.javamathapp {
 
   opens com.sankdev.mathapp to javafx.fxml;
   exports com.sankdev.mathapp;
+  exports com.sankdev.mathapp.linearsystem;
+  opens com.sankdev.mathapp.linearsystem to javafx.fxml;
+  exports com.sankdev.mathapp.nonlinearequation;
+  opens com.sankdev.mathapp.nonlinearequation to javafx.fxml;
 }
