@@ -24,7 +24,7 @@ public class LinearSystemView extends VBox {
     linearSystemImgView.setImage(linearSystemImg);
     Label promptLbl = new Label("Вычислить");
     Button linearSystemMethodBtn = new Button("Методом половинного деления");
-    Button iterativeMethodBtn = new Button("ХХХ");
+    Button iterativeMethodBtn = new Button("Методом простых итераций");
     Button seidelMethodBtn = new Button("ХХХ");
     leftVBox.getChildren()
         .addAll(infoLbl, linearSystemImgView, promptLbl, linearSystemMethodBtn, iterativeMethodBtn,
@@ -53,7 +53,7 @@ public class LinearSystemView extends VBox {
 
     // Добавляем обработчики событий.
     linearSystemMethodBtn.setOnAction(event -> gaussMethodActionHandler.run());
-    //iterativeMethodBtn.setOnAction(event -> iterativeMethodActionHandler.run());
+    iterativeMethodBtn.setOnAction(event -> iterativeMethodActionHandler.run());
     //seidelMethodBtn.setOnAction(event -> seidelMethodActionHandler.run());
 
     // Добавляем в контейнер дочерние элементы окна.

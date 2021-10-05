@@ -2,7 +2,7 @@ package com.sankdev.mathapp.linearsystem;
 
 public class GaussianElimination {
 
-  // Решение методом Гаусса с частичным перемещением (partial pivoting)
+  // Решение методом Гаусса с частичным перемещением (partial pivoting).
   public static double[] solve(double[][] A, double[] b, double epsilon) {
     int n = b.length;
 
@@ -15,8 +15,12 @@ public class GaussianElimination {
           max = i;
         }
       }
-      double[] temp = A[p]; A[p] = A[max]; A[max] = temp;
-      double   t    = b[p]; b[p] = b[max]; b[max] = t;
+      double[] temp = A[p];
+      A[p] = A[max];
+      A[max] = temp;
+      double t = b[p];
+      b[p] = b[max];
+      b[max] = t;
 
       // вырожденная или почти вырожденная
       if (Math.abs(A[p][p]) <= epsilon) {
@@ -50,13 +54,12 @@ public class GaussianElimination {
   public static void main(String[] args) {
     int n = 3;
     double[][] A = {
-        { 0, 1,  1 },
-        { 2, 4, -2 },
-        { 0, 3, 15 }
+        {0, 1, 1},
+        {2, 4, -2},
+        {0, 3, 15}
     };
-    double[] b = { 4, 2, 36 };
+    double[] b = {4, 2, 36};
     double[] x = solve(A, b, 0.001);
-
 
     // print results
     for (int i = 0; i < n; i++) {

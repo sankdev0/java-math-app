@@ -6,10 +6,11 @@ public class LinearSystemController {
 
   private Region view;
 
-  public LinearSystemController () {
+  public LinearSystemController() {
     LinearSystemModel viewModel = new LinearSystemModel();
     LinearSystemInteractor linearSystemInteractor = new LinearSystemInteractor(viewModel);
-    view = new LinearSystemView(viewModel, linearSystemInteractor::gaussMethod, null, null);
+    view = new LinearSystemView(viewModel, linearSystemInteractor::gaussMethod,
+        linearSystemInteractor::iterativeMethod, null);
   }
 
   public Region getView() {
