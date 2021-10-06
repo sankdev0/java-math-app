@@ -2,7 +2,7 @@ package com.sankdev.mathapp.linearsystem;
 
 import java.util.Arrays;
 
-public class Iterative {
+public class IterativeSolver {
 
   // Максимальное число итераций, которые выполнит метод.
   public static final int MAX_ITERATIONS = 20;

@@ -18,7 +18,7 @@ class LinearSystemInteractor {
   // Расчет результата методом Гаусса.
   public void gaussMethod() {
 
-    double[] result = GaussianElimination.solve(A, b, EPSILON);
+    double[] result = GaussianEliminationSolver.solve(A, b, EPSILON);
     String resultString = "Корни СЛАУ: " + Arrays.toString(result);
     viewModel.setLinearSystemResult(resultString);
   }
@@ -26,8 +26,21 @@ class LinearSystemInteractor {
   // Расчет результата методом простых итераций (методом Якоби).
   public void iterativeMethod() {
 
-    double[] result = Iterative.solve(A, b, EPSILON);
+    double[] result = IterativeSolver.solve(A, b, EPSILON);
     String resultString = "Корни СЛАУ: " + Arrays.toString(result);
+    viewModel.setLinearSystemResult(resultString);
+  }
+
+  // Расчет результата методом Зейделя.
+  public void seidelMethod() {
+
+    SeidelSolver gaussSeidel = new SeidelSolver(A, b);
+    String resultString = "";
+    if (!gaussSeidel.makeDominant()) {
+      resultString = "Система не является диагонально доминирующей. Метод не гарантирует сходимость";
+      System.out.println(resultString);
+    }
+    resultString = "Корни СЛАУ: " + Arrays.toString(gaussSeidel.solve());
     viewModel.setLinearSystemResult(resultString);
   }
 

@@ -10,7 +10,7 @@ public class LinearSystemController {
     LinearSystemModel viewModel = new LinearSystemModel();
     LinearSystemInteractor linearSystemInteractor = new LinearSystemInteractor(viewModel);
     view = new LinearSystemView(viewModel, linearSystemInteractor::gaussMethod,
-        linearSystemInteractor::iterativeMethod, null);
+        linearSystemInteractor::iterativeMethod, linearSystemInteractor::seidelMethod);
   }
 
   public Region getView() {

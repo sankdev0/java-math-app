@@ -54,7 +54,7 @@ public class LinearSystemView extends VBox {
     // Добавляем обработчики событий.
     linearSystemMethodBtn.setOnAction(event -> gaussMethodActionHandler.run());
     iterativeMethodBtn.setOnAction(event -> iterativeMethodActionHandler.run());
-    //seidelMethodBtn.setOnAction(event -> seidelMethodActionHandler.run());
+    seidelMethodBtn.setOnAction(event -> seidelMethodActionHandler.run());
 
     // Добавляем в контейнер дочерние элементы окна.
     getChildren().addAll(hBox);

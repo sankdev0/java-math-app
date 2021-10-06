@@ -2,7 +2,7 @@ package com.sankdev.mathapp.linearsystem;
 
 import java.util.Arrays;
 
-public class GaussianElimination {
+public class GaussianEliminationSolver {
 
   // Решение СЛАУ методом Гаусса с частичным перемещением (partial pivoting).
   public static double[] solve(double[][] A, double[] b, double epsilon) {
