@@ -1,4 +1,4 @@
-package com.sankdev.mathapp.linearsystem;
+package com.sankdev.mathapp.nonlinearsystem;
 
 import com.sankdev.mathapp.GUIUtils;
 import javafx.scene.Node;
@@ -10,24 +10,25 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
-public class LinearSystemView extends VBox {
+public class NonLinearSystemView extends VBox {
 
-  LinearSystemView(LinearSystemModel viewModel, Runnable gaussMethodActionHandler,
+  NonLinearSystemView(NonLinearSystemModel viewModel, Runnable simpleIterativeMethod,
       Runnable iterativeMethodActionHandler, Runnable seidelMethodActionHandler) {
 
     // Создаем дочерние элементы окна.
     // Левая группа элементов.
     VBox leftVBox = new VBox();
-    Label infoLbl = new Label("Выберите метод для решения СЛАУ:");
-    Image linearSystemImg = viewModel.getLinearSystemImg();
-    ImageView linearSystemImgView = new ImageView();
-    linearSystemImgView.setImage(linearSystemImg);
+    Label infoLbl = new Label("Выберите метод для решения СНУ:");
+    Image nonLinearSystemImg = viewModel.getNonLinearSystemImg();
+    ImageView nonLinearSystemImgView = new ImageView();
+    nonLinearSystemImgView.setImage(nonLinearSystemImg);
     Label promptLbl = new Label("Вычислить");
-    Button linearSystemMethodBtn = new Button("Методом половинного деления");
-    Button iterativeMethodBtn = new Button("Методом простых итераций");
-    Button seidelMethodBtn = new Button("Методом Зейделя");
+    Button simpleIterativeMethodBtn = new Button("Методом простых итераций");
+    Button newtonMethodBtn = new Button("Методом Ньютона");
+    Button seidelMethodBtn = new Button("ХХХ");
     leftVBox.getChildren()
-        .addAll(infoLbl, linearSystemImgView, promptLbl, linearSystemMethodBtn, iterativeMethodBtn,
+        .addAll(infoLbl, nonLinearSystemImgView, promptLbl, simpleIterativeMethodBtn,
+            newtonMethodBtn,
             seidelMethodBtn);
     GUIUtils.styleBoxPane(leftVBox);
     for (Node tempNode : leftVBox.getChildren()) {
@@ -43,7 +44,7 @@ public class LinearSystemView extends VBox {
     resultTxt.setWrapText(true);
     // ! Связываем содержимое текстового поля с атрибутом модели.
     resultTxt.textProperty()
-        .bindBidirectional(viewModel.linearSystemResultProperty());
+        .bindBidirectional(viewModel.nonLinearSystemResultProperty());
     rightVBox.getChildren().addAll(placeholderLbl, resultLbl, resultTxt);
     GUIUtils.styleBoxPane(rightVBox);
     // Дополнительный контейнер.
@@ -52,8 +53,8 @@ public class LinearSystemView extends VBox {
     GUIUtils.styleBoxPane(hBox);
 
     // Добавляем обработчики событий.
-    linearSystemMethodBtn.setOnAction(event -> gaussMethodActionHandler.run());
-    iterativeMethodBtn.setOnAction(event -> iterativeMethodActionHandler.run());
+    simpleIterativeMethodBtn.setOnAction(event -> simpleIterativeMethod.run());
+    newtonMethodBtn.setOnAction(event -> iterativeMethodActionHandler.run());
     seidelMethodBtn.setOnAction(event -> seidelMethodActionHandler.run());
 
     // Добавляем в контейнер дочерние элементы окна.
