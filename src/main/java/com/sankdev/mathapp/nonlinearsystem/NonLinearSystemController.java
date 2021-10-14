@@ -10,7 +10,7 @@ public class NonLinearSystemController {
     NonLinearSystemModel viewModel = new NonLinearSystemModel();
     NonLinearSystemInteractor nonLinearSystemInteractor = new NonLinearSystemInteractor(viewModel);
     view = new NonLinearSystemView(viewModel, nonLinearSystemInteractor::simpleIterativeMethod,
-        null, null);
+        nonLinearSystemInteractor::newtonMethod);
   }
 
   public Region getView() {

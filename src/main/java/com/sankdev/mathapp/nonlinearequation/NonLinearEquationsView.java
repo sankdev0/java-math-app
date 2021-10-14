@@ -30,7 +30,7 @@ public class NonLinearEquationsView extends VBox {
         .addAll(infoLbl, nonLinearEquationImgView, promptLbl, halfDivisionMethodBtn, chordMethodBtn,
             tangentMethodBtn);
     GUIUtils.styleBoxPane(leftVBox);
-    for(Node tempNode : leftVBox.getChildren()) {
+    for (Node tempNode : leftVBox.getChildren()) {
       if (tempNode instanceof Button) {
         ((Button) tempNode).setPrefWidth(300);
       }

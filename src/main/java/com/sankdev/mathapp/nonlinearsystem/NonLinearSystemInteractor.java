@@ -19,4 +19,12 @@ class NonLinearSystemInteractor {
     viewModel.setNonLinearSystemResult(resultString);
   }
 
+  // Расчет результата методом Ньютона.
+  public void newtonMethod() {
+
+    double[] result = NewtonSolver.solveNonLinearSystem();
+    String resultString = "Корни СЛАУ: " + Arrays.toString(result);
+    viewModel.setNonLinearSystemResult(resultString);
+  }
+
 }

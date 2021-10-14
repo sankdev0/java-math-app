@@ -47,7 +47,7 @@ public class GUIUtils {
     }
 
     if (pane instanceof HBox) {
-      ((HBox)pane).setSpacing(DEFAULT_SPACING);
+      ((HBox) pane).setSpacing(DEFAULT_SPACING);
     }
 
     List<Node> nodes = pane.getChildren();
@@ -59,7 +59,7 @@ public class GUIUtils {
         styleLabeled((Label) tempNode, BASE_TXT_FONT);
       }
       if (tempNode instanceof TextField || tempNode instanceof TextArea) {
-        styleTextInputControl((TextInputControl)tempNode, BASE_TXT_FONT);
+        styleTextInputControl((TextInputControl) tempNode, BASE_TXT_FONT);
       }
     }
   }

@@ -1,19 +1,9 @@
 package com.sankdev.mathapp.linearsystem;
 
-import java.util.Arrays;
-
 public class GaussianEliminationSolver {
 
   // Решение СЛАУ методом Гаусса с частичным перемещением (partial pivoting).
   public static double[] solve(double[][] A, double[] b, double epsilon) {
-
-    System.out.println("Метод Гаусса");
-    for (int i = 0; i < A.length; i++) {
-      for (int j = 0; j < A[0].length; j++) {
-        System.out.print(A[i][j] + " ");
-      }
-      System.out.println();
-    }
 
     int n = b.length;
 
@@ -59,7 +49,6 @@ public class GaussianEliminationSolver {
     }
     return x;
   }
-
 
   // тестовый прогон
   public static void main(String[] args) {

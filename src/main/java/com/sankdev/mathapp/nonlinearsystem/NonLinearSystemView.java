@@ -13,7 +13,7 @@ import javafx.scene.layout.VBox;
 public class NonLinearSystemView extends VBox {
 
   NonLinearSystemView(NonLinearSystemModel viewModel, Runnable simpleIterativeMethod,
-      Runnable iterativeMethodActionHandler, Runnable seidelMethodActionHandler) {
+      Runnable newtonMethodActionHandler) {
 
     // Создаем дочерние элементы окна.
     // Левая группа элементов.
@@ -25,11 +25,9 @@ public class NonLinearSystemView extends VBox {
     Label promptLbl = new Label("Вычислить");
     Button simpleIterativeMethodBtn = new Button("Методом простых итераций");
     Button newtonMethodBtn = new Button("Методом Ньютона");
-    Button seidelMethodBtn = new Button("ХХХ");
     leftVBox.getChildren()
         .addAll(infoLbl, nonLinearSystemImgView, promptLbl, simpleIterativeMethodBtn,
-            newtonMethodBtn,
-            seidelMethodBtn);
+            newtonMethodBtn);
     GUIUtils.styleBoxPane(leftVBox);
     for (Node tempNode : leftVBox.getChildren()) {
       if (tempNode instanceof Button) {
@@ -54,8 +52,7 @@ public class NonLinearSystemView extends VBox {
 
     // Добавляем обработчики событий.
     simpleIterativeMethodBtn.setOnAction(event -> simpleIterativeMethod.run());
-    newtonMethodBtn.setOnAction(event -> iterativeMethodActionHandler.run());
-    seidelMethodBtn.setOnAction(event -> seidelMethodActionHandler.run());
+    newtonMethodBtn.setOnAction(event -> newtonMethodActionHandler.run());
 
     // Добавляем в контейнер дочерние элементы окна.
     getChildren().addAll(hBox);

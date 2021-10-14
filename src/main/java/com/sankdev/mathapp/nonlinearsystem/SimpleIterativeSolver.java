@@ -11,7 +11,7 @@ public class SimpleIterativeSolver {
 
   // 2. Преобразовать СНУ
   public static double firstEquation(double y) {
-    return 0-Math.cos(y - 2);
+    return 0 - Math.cos(y - 2);
   }
 
   public static double secondEquation(double x) {
