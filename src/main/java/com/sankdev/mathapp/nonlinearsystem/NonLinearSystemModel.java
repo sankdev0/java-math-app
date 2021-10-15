@@ -23,23 +23,23 @@ public class NonLinearSystemModel {
     return nonLinearSystemImg.get();
   }
 
-  public ObjectProperty<Image> nonLinearSystemImgProperty() {
-    return nonLinearSystemImg;
-  }
-
   public void setNonLinearSystemImg(Image nonLinearSystemImg) {
     this.nonLinearSystemImg.set(nonLinearSystemImg);
+  }
+
+  public ObjectProperty<Image> nonLinearSystemImgProperty() {
+    return nonLinearSystemImg;
   }
 
   public String getNonLinearSystemResult() {
     return nonLinearSystemResult.get();
   }
 
-  public StringProperty nonLinearSystemResultProperty() {
-    return nonLinearSystemResult;
-  }
-
   public void setNonLinearSystemResult(String nonLinearSystemResult) {
     this.nonLinearSystemResult.set(nonLinearSystemResult);
+  }
+
+  public StringProperty nonLinearSystemResultProperty() {
+    return nonLinearSystemResult;
   }
 }

@@ -23,23 +23,23 @@ public class LinearSystemModel {
     return linearSystemImg.get();
   }
 
-  public ObjectProperty<Image> linearSystemImgProperty() {
-    return linearSystemImg;
-  }
-
   public void setLinearSystemImg(Image linearSystemImg) {
     this.linearSystemImg.set(linearSystemImg);
+  }
+
+  public ObjectProperty<Image> linearSystemImgProperty() {
+    return linearSystemImg;
   }
 
   public String getLinearSystemResult() {
     return linearSystemResult.get();
   }
 
-  public StringProperty linearSystemResultProperty() {
-    return linearSystemResult;
-  }
-
   public void setLinearSystemResult(String linearSystemResult) {
     this.linearSystemResult.set(linearSystemResult);
+  }
+
+  public StringProperty linearSystemResultProperty() {
+    return linearSystemResult;
   }
 }

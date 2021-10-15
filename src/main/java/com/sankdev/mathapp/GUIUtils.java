@@ -23,10 +23,10 @@ public class GUIUtils {
       Font.getDefault().getSize() * 1.2);
   public static final Font BASE_BOLD_FONT = Font.font(Font.getDefault().getName(), FontWeight.BOLD,
       Font.getDefault().getSize() * 1.3);
-  public static Insets DEFAULT_INSETS = new Insets(5);
   public static final int DEFAULT_SPACING = 10;
   public static final double BASE_WINDOW_WIDTH = 700;
   public static final double BASE_WINDOW_HEIGHT = 400;
+  public static Insets DEFAULT_INSETS = new Insets(5);
 
   public static void styleLabeled(Labeled labeled, Font theFont) {
     labeled.setFont(theFont);

@@ -30,6 +30,29 @@ public class SeidelSolver {
     this.M = A;
   }
 
+  public static void main(String[] args)
+      throws IOException {
+    PrintWriter writer
+        = new PrintWriter(System.out, true);
+    int n = 2, k = 1;
+    double[][] M = new double[n][n + 1];
+    for (int i = 0; i < n; i++) {
+      for (int j = 0; j < n + 1; j++) {
+        M[i][j] = k++;
+      }
+    }
+    SeidelSolver gausSeidel = new SeidelSolver(M);
+    if (!gausSeidel.makeDominant()) {
+
+      writer.println(
+          "Система не является диагонально доминантной: "
+              + "Метод не может гарантировать сходимость.");
+    }
+    writer.println();
+    gausSeidel.print();
+    gausSeidel.solve();
+  }
+
   public void print() // printing
   {
     int n = M.length;
@@ -123,28 +146,5 @@ public class SeidelSolver {
       prevX = (double[]) currX.clone();
     }
     return currX;
-  }
-
-  public static void main(String[] args)
-      throws IOException {
-    PrintWriter writer
-        = new PrintWriter(System.out, true);
-    int n = 2, k = 1;
-    double[][] M = new double[n][n + 1];
-    for (int i = 0; i < n; i++) {
-      for (int j = 0; j < n + 1; j++) {
-        M[i][j] = k++;
-      }
-    }
-    SeidelSolver gausSeidel = new SeidelSolver(M);
-    if (!gausSeidel.makeDominant()) {
-
-      writer.println(
-          "Система не является диагонально доминантной: "
-              + "Метод не может гарантировать сходимость.");
-    }
-    writer.println();
-    gausSeidel.print();
-    gausSeidel.solve();
   }
 }

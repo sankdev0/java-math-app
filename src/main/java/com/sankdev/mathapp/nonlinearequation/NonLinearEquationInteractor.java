@@ -2,16 +2,14 @@ package com.sankdev.mathapp.nonlinearequation;
 
 class NonLinearEquationInteractor {
 
+  private final double EPSILON = 0.001; // точность
   NonLinearEquationModel viewModel;
-
+  private double a = -1; // начало интервала a
+  private double b = 8; // конец интервала b
   public NonLinearEquationInteractor(NonLinearEquationModel viewModel) {
     this.viewModel = viewModel;
     // Здесь не нужны связи (binds) между элементами интерфейса, хотя обычно они здесь.
   }
-
-  private double a = -1; // начало интервала a
-  private double b = 8; // конец интервала b
-  private final double EPSILON = 0.001; // точность
 
   // Расчет значения функции для аргумента x.
   public double functionValue(double x) {

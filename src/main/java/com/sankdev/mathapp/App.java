@@ -6,8 +6,12 @@ import javafx.stage.Stage;
 
 public class App extends Application {
 
-  private static final double width = 350;
   public static final double height = 300;
+  private static final double width = 350;
+
+  public static void main(String[] args) {
+    Application.launch();
+  }
 
   @Override
   public void start(Stage stage) throws Exception {
@@ -17,9 +21,5 @@ public class App extends Application {
     stage.setTitle("Пакет прикладных программ");
     stage.setScene(scene);
     stage.show();
-  }
-
-  public static void main(String[] args) {
-    Application.launch();
   }
 }

@@ -31,11 +31,11 @@ public class NonLinearEquationModel {
     return nonLinearEquationResult.get();
   }
 
-  public StringProperty nonLinearEquationResultProperty() {
-    return nonLinearEquationResult;
-  }
-
   public void setNonLinearEquationResult(String nonLinearEquationResult) {
     this.nonLinearEquationResult.set(nonLinearEquationResult);
+  }
+
+  public StringProperty nonLinearEquationResultProperty() {
+    return nonLinearEquationResult;
   }
 }

@@ -1,5 +1,6 @@
 package com.sankdev.mathapp;
 
+import com.sankdev.mathapp.interpolation.InterpolationController;
 import com.sankdev.mathapp.linearsystem.LinearSystemController;
 import com.sankdev.mathapp.nonlinearequation.NonLinearEquationController;
 import com.sankdev.mathapp.nonlinearsystem.NonLinearSystemController;
@@ -19,6 +20,7 @@ public class MainWindowView extends VBox {
     Button nonLinearEquationsBtn = new Button("Решение нелинейных уравнений");
     Button linearSystemsBtn = new Button("Решение СЛАУ");
     Button nonLinearSystemsBtn = new Button("Решение СНУ");
+    Button interpolationBtn = new Button("Интерполирование сетчатой функции");
 
     // Добавляем обработчики событий.
     nonLinearEquationsBtn.setOnAction(event -> {
@@ -52,8 +54,20 @@ public class MainWindowView extends VBox {
       stage.show();
     });
 
+    interpolationBtn.setOnAction(event -> {
+      Stage stage = new Stage();
+      stage.setTitle("Интерполирование сетчатой функции");
+      stage.initModality(Modality.APPLICATION_MODAL);
+
+      Scene scene = new Scene(new InterpolationController().getView(), GUIUtils.BASE_WINDOW_WIDTH,
+          GUIUtils.BASE_WINDOW_HEIGHT);
+      stage.setScene(scene);
+      stage.show();
+    });
+
     // Добавляем в контейнер дочерние элементы окна.
-    getChildren().setAll(infoLbl, nonLinearEquationsBtn, linearSystemsBtn, nonLinearSystemsBtn);
+    getChildren().setAll(infoLbl, nonLinearEquationsBtn, linearSystemsBtn, nonLinearSystemsBtn,
+        interpolationBtn);
 
     // Стилизуем элементы главного окна.
     GUIUtils.styleBoxPane(this);
