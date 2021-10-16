@@ -10,7 +10,7 @@ public class IntegrationController {
     IntegrationModel viewModel = new IntegrationModel();
     IntegrationInteractor integrationInteractor = new IntegrationInteractor(viewModel);
     view = new IntegrationView(viewModel, integrationInteractor::trapezoidalRule,
-        null);
+        integrationInteractor::simpsonsRule);
   }
 
   public Region getView() {

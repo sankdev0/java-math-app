@@ -32,6 +32,7 @@ public class IntegrationView extends VBox {
     leftVBox.getChildren().addAll(infoLbl, firstPromptLbl, firstIntegrationImgView, trapezoidalRuleBtn,
         secondPromptLbl, secondIntegrationImgView, simpsonsRuleBtn);
     GUIUtils.styleBoxPane(leftVBox);
+    infoLbl.setPrefWidth(600);
     for (Node tempNode : leftVBox.getChildren()) {
       if (tempNode instanceof Button) {
         ((Button) tempNode).setPrefWidth(300);
