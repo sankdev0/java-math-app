@@ -24,7 +24,7 @@ public class GUIUtils {
   public static final Font BASE_BOLD_FONT = Font.font(Font.getDefault().getName(), FontWeight.BOLD,
       Font.getDefault().getSize() * 1.3);
   public static final int DEFAULT_SPACING = 10;
-  public static final double BASE_WINDOW_WIDTH = 700;
+  public static final double BASE_WINDOW_WIDTH = 800;
   public static final double BASE_WINDOW_HEIGHT = 400;
   public static Insets DEFAULT_INSETS = new Insets(5);
 
