@@ -6,6 +6,7 @@ class NonLinearEquationInteractor {
   NonLinearEquationModel viewModel;
   private double a = -1; // начало интервала a
   private double b = 8; // конец интервала b
+
   public NonLinearEquationInteractor(NonLinearEquationModel viewModel) {
     this.viewModel = viewModel;
     // Здесь не нужны связи (binds) между элементами интерфейса, хотя обычно они здесь.

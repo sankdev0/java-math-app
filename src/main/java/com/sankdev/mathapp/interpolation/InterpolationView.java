@@ -25,9 +25,8 @@ public class InterpolationView extends VBox {
     Label promptLbl = new Label("Вычислить");
     Button lagrangePolynomialBtn = new Button("Интерполяционный многочлен Лагранжа");
     Button newtonPolynomialBtn = new Button("Интерполяционный многочлен Ньютона");
-    leftVBox.getChildren()
-        .addAll(infoLbl, InterpolationImgView, promptLbl, lagrangePolynomialBtn,
-            newtonPolynomialBtn);
+    leftVBox.getChildren().addAll(infoLbl, InterpolationImgView, promptLbl, lagrangePolynomialBtn,
+        newtonPolynomialBtn);
     GUIUtils.styleBoxPane(leftVBox);
     for (Node tempNode : leftVBox.getChildren()) {
       if (tempNode instanceof Button) {

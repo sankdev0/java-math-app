@@ -1,4 +1,4 @@
-package com.sankdev.mathapp.integration;
+package com.sankdev.mathapp.differential;
 
 import com.sankdev.mathapp.GUIUtils;
 import javafx.scene.Node;
@@ -10,30 +10,20 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
-public class IntegrationView extends VBox {
+public class DifferentialView extends VBox {
 
-  IntegrationView(IntegrationModel viewModel, Runnable trapezoidalRuleActionHandler,
-      Runnable simpsonsRuleActionHandler) {
+  DifferentialView(DifferentialModel viewModel, Runnable rungeKuttaActionHandler) {
 
     // Создаем дочерние элементы окна.
     // Левая группа элементов.
     VBox leftVBox = new VBox();
-    Label infoLbl = new Label("Выберите правило для интегрирования:");
-    Image firstIntegrationImg = viewModel.getFirstIntegrationImg();
-    ImageView firstIntegrationImgView = new ImageView();
-    firstIntegrationImgView.setImage(firstIntegrationImg);
-    Image secondIntegrationImg = viewModel.getSecondIntegrationImg();
-    ImageView secondIntegrationImgView = new ImageView();
-    secondIntegrationImgView.setImage(secondIntegrationImg);
-    Label firstPromptLbl = new Label("Вычислить");
-    Label secondPromptLbl = new Label(firstPromptLbl.getText());
-    Button trapezoidalRuleBtn = new Button("По правилу трапеций");
-    Button simpsonsRuleBtn = new Button("По правилу Симпсона");
-    leftVBox.getChildren()
-        .addAll(infoLbl, firstPromptLbl, firstIntegrationImgView, trapezoidalRuleBtn,
-            secondPromptLbl, secondIntegrationImgView, simpsonsRuleBtn);
+    Label infoLbl = new Label("ОДУ:");
+    Image differentialImg = viewModel.getDifferentialImg();
+    ImageView differentialImgView = new ImageView();
+    differentialImgView.setImage(differentialImg);
+    Button rungeKuttaBtn = new Button("Вычислить");
+    leftVBox.getChildren().addAll(infoLbl, differentialImgView, rungeKuttaBtn);
     GUIUtils.styleBoxPane(leftVBox);
-    infoLbl.setPrefWidth(600);
     for (Node tempNode : leftVBox.getChildren()) {
       if (tempNode instanceof Button) {
         ((Button) tempNode).setPrefWidth(300);
@@ -47,7 +37,7 @@ public class IntegrationView extends VBox {
     resultTxt.setWrapText(true);
     // ! Связываем содержимое текстового поля с атрибутом модели.
     resultTxt.textProperty()
-        .bindBidirectional(viewModel.integrationResultProperty());
+        .bindBidirectional(viewModel.differentailResultProperty());
     rightVBox.getChildren().addAll(placeholderLbl, resultLbl, resultTxt);
     GUIUtils.styleBoxPane(rightVBox);
     // Дополнительный контейнер.
@@ -56,8 +46,7 @@ public class IntegrationView extends VBox {
     GUIUtils.styleBoxPane(hBox);
 
     // Добавляем обработчики событий.
-    trapezoidalRuleBtn.setOnAction(event -> trapezoidalRuleActionHandler.run());
-    simpsonsRuleBtn.setOnAction(event -> simpsonsRuleActionHandler.run());
+    rungeKuttaBtn.setOnAction(event -> rungeKuttaActionHandler.run());
 
     // Добавляем в контейнер дочерние элементы окна.
     getChildren().addAll(hBox);

@@ -53,7 +53,7 @@ public class SeidelSolver {
     gausSeidel.solve();
   }
 
-  public void print() // printing
+  public void print() // вывод
   {
     int n = M.length;
     for (int i = 0; i < n; i++) {
@@ -64,8 +64,7 @@ public class SeidelSolver {
     }
   }
 
-  // attempting to change a matrix to dominant
-  // if proved that it is not
+  // Перевод в диагонально доминантную, если она еще не такая.
   public boolean transformToDominant(int r, boolean[] V,
       int[] R) {
     int n = M.length;

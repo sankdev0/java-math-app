@@ -52,11 +52,11 @@ public class IntegrationModel {
     return secondIntegrationImg.get();
   }
 
-  public ObjectProperty<Image> secondIntegrationImgProperty() {
-    return secondIntegrationImg;
-  }
-
   public void setSecondIntegrationImg(Image secondIntegrationImg) {
     this.secondIntegrationImg.set(secondIntegrationImg);
+  }
+
+  public ObjectProperty<Image> secondIntegrationImgProperty() {
+    return secondIntegrationImg;
   }
 }

@@ -1,82 +1,42 @@
 package com.sankdev.mathapp.differential;
 
-/*
- * RungeKutta.java by Richard J. Davies
- * from `Introductory Java for Scientists and Engineers'
- * chapter: `Numerical Computation'
- * section: `Runge-Kutta Methods'
- *
- * This problem uses Euclid's method and the fourth
- * order Runge-Kutta method to compute y at x=1
- * for the D.E. dy/dx = x * sqrt(1 + y*y)
- * with initial value y=0 at x=0.
- */
-
 public class RungeKuttaMethod {
 
-  // The number of steps to use in the interval
-  public static final int STEPS = 100;
-
-
-  // The derivative dy/dx at a given value of x and y.
-  public static double deriv(double x, double y) {
-    return x * Math.sqrt(1 + y * y);
+  // Производная dy/dx в точке x и y.
+  public static double derivative(double x, double y) {
+    return x * y / 4;
   }
 
 
   // The `main' method does the actual computations
-  public static void main(String[] argv) {
-    // `h' is the size of each step.
-    double h = 1.0 / STEPS;
+  public static double calcRungeKutta() {
+    // Границы отрезка [0,2].
+    double a = 0;
+    double b = 2;
+    // h - размер шага.
+    double h = 0.2;
+    double steps = (b - a) / h;
     double k1, k2, k3, k4;
     double x, y;
-    int i;
 
-    // Computation by Euclid's method
-    // Initialize y
-    y = 0;
+    // Расчет методом Рунге-Кутты 4-го порядка.
+    // Инициализация y.
+    y = 1;
 
-    for (i = 0; i < STEPS; i++) {
-      // Step through, updating x and incrementing y
+    for (int i = 0; i < steps; i++) {
+      // Шагаем.
       x = i * h;
 
-      y += h * deriv(x, y);
-    }
+      // Расчет четырех стадий
+      k1 = h * derivative(x, y);
+      k2 = h * derivative(x + h / 2, y + k1 / 2);
+      k3 = h * derivative(x + h / 2, y + k2 / 2);
+      k4 = h * derivative(x + h, y + k3);
 
-    // Print out the result that we get.
-    System.out.println("Using the Euler method "
-        + "The value at x=1 is:");
-    System.out.println(y);
-
-    // Computation by 4th order Runge-Kutta
-    // Initialize y
-    y = 0;
-
-    for (i = 0; i < STEPS; i++) {
-      // Step through, updating x
-      x = i * h;
-
-      // Computing all of the trial values
-      k1 = h * deriv(x, y);
-      k2 = h * deriv(x + h / 2, y + k1 / 2);
-      k3 = h * deriv(x + h / 2, y + k2 / 2);
-      k4 = h * deriv(x + h, y + k3);
-
-      // Incrementing y
+      // Вычисляем приближенное значение в последующих точках y(n+1).
       y += k1 / 6 + k2 / 3 + k3 / 3 + k4 / 6;
     }
 
-    // Print out the result that we get.
-    System.out.println();
-    System.out.println("Using 4th order Runge-Kutta "
-        + "The value at x=1 is:");
-    System.out.println(y);
-
-    // Computation by closed form solution
-    // Print out the result that we get.
-    System.out.println();
-    System.out.println("The value really is:");
-    y = (Math.exp(0.5) - Math.exp(-0.5)) / 2;
-    System.out.println(y);
+    return y;
   }
 }
