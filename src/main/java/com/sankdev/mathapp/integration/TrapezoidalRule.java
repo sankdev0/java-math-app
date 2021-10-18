@@ -10,8 +10,8 @@ public class TrapezoidalRule {
   Интегрируй от a до b по правилу трапеций.
    */
   public static double integrate(double a, double b, int N) {
-    double h = (b - a) / N;              // step size
-    double sum = 0.5 * (f(a) + f(b));    // area
+    double h = (b - a) / N;              // размер шага
+    double sum = 0.5 * (f(a) + f(b));    // расчет площади
     for (int i = 1; i < N; i++) {
       double x = a + h * i;
       sum = sum + f(x);

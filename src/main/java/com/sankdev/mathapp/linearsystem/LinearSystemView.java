@@ -23,7 +23,7 @@ public class LinearSystemView extends VBox {
     ImageView linearSystemImgView = new ImageView();
     linearSystemImgView.setImage(linearSystemImg);
     Label promptLbl = new Label("Вычислить");
-    Button linearSystemMethodBtn = new Button("Методом половинного деления");
+    Button linearSystemMethodBtn = new Button("Методом Гаусса");
     Button iterativeMethodBtn = new Button("Методом простых итераций");
     Button seidelMethodBtn = new Button("Методом Зейделя");
     leftVBox.getChildren()

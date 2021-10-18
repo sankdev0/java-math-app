@@ -61,7 +61,7 @@ public class GaussianEliminationSolver {
     double[] b = {4, 2, 36};
     double[] x = solve(A, b, 0.001);
 
-    // print results
+    // вывод результатов
     for (int i = 0; i < n; i++) {
       System.out.println(x[i]);
     }
